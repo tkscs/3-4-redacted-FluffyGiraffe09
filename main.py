@@ -1,18 +1,15 @@
 
 import string
-alphabet = string.ascii_letters 
+alphabet = "abcdefghijklmnopqrstuvwxyz., "
 
-original_string = "hello my name is Orli."
+original_string = """Erin came to Kehillah after getting her PhD in Cognitive Science from Stanford University, where she worked on projects in Natural Languag Understanding and Computational Linguistics. Erin has taught many high school,college, and graduate students in classes at Stanford and UC San Diego and one-on-one online tutoring. She has taught a range of topics including Computer Science, Calculus, Statistics, Psychology, and Robotics. She loves combining her interests and skills in interdisciplinary projects. Outside of teaching, Erin enjoys rock climbing, quilting, juggling, acting, and spending time with her partner and her cat."""
 new_string = ""
-for word in original_string.split(" "):
-        index = alphabet.index(word[0])
-        
-        if index >= 26 and index <= 51:
-            new_word = "Redacted"
-            new_string += new_word + " "
-        elif index >=0 and index <= 25:
-            new_word = word
-            new_string += new_word + " "
+for word in original_string.split():
+        first = word[0]
+        if first not in alphabet:
+            new_string += "Redacted" + " "
+        elif first in alphabet:
+            new_string += word + " "
 print(new_string)
 
 
